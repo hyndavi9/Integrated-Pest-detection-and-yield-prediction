@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Yield Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://plus.unsplash.com/premium_photo-1664298984101-5c9f1d09f1c3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI0fHx8ZW58MHx8fHx8');
+            background-position: center;
+            height: 100vh;
+        }
+        .bg-transparent {
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+
+            color: #fff; /* Text color */
+        }
+        .form-control-custom {
+            background-color: transparent;
+            border: 2px solid #4CAF50;
+            color: white;
+        }
+        .form-control::placeholder {
+            color: #ccc;
+        }
+        .btn-custom {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .btn-custom:hover {
+            background-color: #45a049;
+        }
+        .heading-text {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 bg-transparent text-white">
+            <h1 class="text-center heading-text">Crop Yield Prediction</h1>
+            <h4 class="text-center">Input All Features Here</h4>
+
+            <form action="/predict" method="post">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="Year" class="form-label">Year</label>
+                        <input type="number" class="form-control form-control-custom" name="Year" placeholder="e.g., 2013" value="2013" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="average_rain_fall_mm_per_year" class="form-label">Average Rainfall (mm/year)</label>
+                        <input type="number" class="form-control form-control-custom" name="average_rain_fall_mm_per_year" placeholder="e.g., 1000" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pesticides_tonnes" class="form-label">Pesticides (tonnes)</label>
+                        <input type="number" class="form-control form-control-custom" name="pesticides_tonnes" placeholder="e.g., 50" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="avg_temp" class="form-label">Average Temperature (°C)</label>
+                        <input type="number" class="form-control form-control-custom" name="avg_temp" placeholder="e.g., 25" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Area" class="form-label">Area</label>
+                        <input type="text" class="form-control form-control-custom" name="Area" placeholder="e.g., India" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Item" class="form-label">Item</label>
+                        <input type="text" class="form-control form-control-custom" name="Item" placeholder="e.g., Wheat" required>
+                    </div>
+                    <div class="col-12 d-flex gap-3">
+                        <button type="submit" class="btn btn-custom btn-lg mt-3 w-50">Predict</button>
+                        <button type="reset" class="btn btn-secondary btn-lg mt-3 w-50">Reset</button>
+                    </div>
+                </div>
+            </form>
+
+            {% if prediction %}
+                <div class="alert alert-success text-center mt-4" role="alert">
+                    <h2>Predicted Yield:</h2>
+                    <h3 class="fw-bold">{{ prediction }}</h3>
+                </div>
+            {% endif %}
+
+            {% if error %}
+                <div class="alert alert-danger text-center mt-4" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

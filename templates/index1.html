@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/styles1.css">
+</head>
+<body>
+    <div class="signup-container">
+        <form action="/signup" method="POST">
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+            <button type="submit">Sign Up</button>
+            
+            <p>Already a user? <a href="/login">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>

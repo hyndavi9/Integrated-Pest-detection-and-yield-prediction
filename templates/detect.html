@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Disease Detection</title>
+    <link rel="stylesheet" href="/static/detect.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Disease Detection</h1>
+        
+        <div class="upload-section">
+            <form action="/detect" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="fileInput" accept="image/*" onchange="previewImage(event)" required>
+                <button type="submit">Upload & Predict</button>
+            </form>
+        </div>
+
+        <div class="image-preview" id="imagePreview">
+            <p>No image uploaded yet.</p>
+        </div>
+
+        {% if result %}
+        <div class="result">
+            <h3>Result:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const previewContainer = document.getElementById('imagePreview');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewContainer.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image">`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewContainer.innerHTML = `<p>No image uploaded yet.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+

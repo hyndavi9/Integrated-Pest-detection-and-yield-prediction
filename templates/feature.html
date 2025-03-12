@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Selection</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            background: url('https://plus.unsplash.com/premium_photo-1664298984101-5c9f1d09f1c3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI0fHx8ZW58MHx8fHx8') no-repeat center center/cover;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.15); 
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1.2rem;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to AgriCare!</h1>
+        <p>Select a feature to proceed:</p>
+        <form action="/detect">
+            <button type="submit" class="btn">Pest and Disease Detection</button>
+        </form>
+        <form action="/predict">
+            <button type="submit" class="btn">Crop Yield Prediction</button>
+        </form>
+    </div>
+</body>
+</html>

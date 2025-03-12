@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://plus.unsplash.com/premium_photo-1664298984101-5c9f1d09f1c3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI0fHx8ZW58MHx8fHx8') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.15); /* Transparent background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for better visibility */
+    padding: 50px 40px; /* Added padding for breathing space */
+    width: 100%;
+    max-width: 380px; /* Wider form for aesthetic layout */
+    color: rgba(0, 0, 0, 0.3); /* Text color */
+}
+
+h1 {
+    color: #001001;
+    margin-bottom: 20px;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto 15px auto;
+    padding: 8px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #e8f5e9;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.image-preview img {
+    width: 100%;
+    max-height: 250px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 3px solid #4CAF50;
+}
+
+.result {
+    margin-top: 20px;
+    background-color: #e8f5e9;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 15px;
+    color: #001001;
+}
